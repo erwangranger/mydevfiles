@@ -16,7 +16,7 @@ components:
   - id: ms-python/python/latest
     type: chePlugin
   - mountSources: true
-#    memoryLimit: 512Mi
+    memoryLimit: 1024Mi
     type: dockerimage
 #    volumes:
 #      - name: venv
