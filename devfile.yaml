@@ -2,16 +2,21 @@ apiVersion: 1.0.0
 metadata:
   generateName: python-jupyter-
 projects:
-  - name: jupyter-hello-world1
+  - name: license-plate-workshop
     source:
       startPoint: master
-      location: 'https://github.com/chasbecker/TextAnalysis.git'
+      location: 'https://github.com/rh-aiservices-bu/licence-plate-workshop.git'
+      type: git
+  - name: object-detection
+    source:
+      startPoint: master
+      location: 'https://github.com/redhat-scholars/rhods-od-workshop.git'
       type: git
 components:
   - id: ms-python/python/latest
     type: chePlugin
   - mountSources: true
-    memoryLimit: 512Mi
+#    memoryLimit: 512Mi
     type: dockerimage
 #    volumes:
 #      - name: venv
@@ -23,5 +28,5 @@ commands:
     actions:
       - workdir: /home/user
         type: exec
-        command: python -m venv .venv && . .venv/bin/activate && python -m pip install -r /projects/jupyter-hello-world1/requirements.txt
+        command: python -m venv .venv && . .venv/bin/activate && python -m pip install flask
         component: python
